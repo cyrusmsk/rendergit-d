@@ -1,0 +1,8 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"argparse": "1.4.1",
+		"commandr": "1.1.0",
+		"commonmark-d": "1.0.10"
+	}
+}

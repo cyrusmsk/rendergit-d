@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/rendergit
+rendergit.so
+rendergit.dylib
+rendergit.dll
+rendergit.a
+rendergit.lib
+rendergit-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
