@@ -538,7 +538,7 @@ void main(string[] args) {
           .summary("Flatten github repo")
           .author("Sergei Giniatulin @ cyrusmsk")
           .add(new Argument("repo_url", "Git repository").name("repoUrl"))
-          .add(new Flag(null, "no-open", "Don't open the bworser").name("noOpen"))
+          .add(new Flag(null, "no-open", "Don't open the browser").name("noOpen"))
           .add(new Option("o", "out", "Output folder").name("outputPath"))
           .add(new Option(null, "max-bytes", "Maximum file size in bytes").name("maxBytes"))
           .parse(args);
