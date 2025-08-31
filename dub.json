@@ -1,13 +1,12 @@
 {
-	"authors": [
-		"Sergei Giniatulin"
-	],
-	"copyright": "Copyright © 2025, Sergei Giniatulin",
-	"dependencies": {
-		"commandr": "~>1.1.0",
-		"commonmark-d": "~>1.0.10"
-	},
-	"description": "D application to render git into flat html",
-	"license": "MIT",
-	"name": "rendergit"
+  "authors": ["Sergei Giniatulin"],
+  "copyright": "Copyright © 2025, Sergei Giniatulin",
+  "dependencies": {
+    "commandr": "~>1.1.0",
+    "commonmark-d": "~>1.0.10"
+  },
+  "dflags": ["-mcpu=native"],
+  "description": "D application to render git into flat html",
+  "license": "MIT",
+  "name": "rendergit"
 }

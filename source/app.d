@@ -194,9 +194,12 @@ string renderMarkdownText(string mdText) {
     return convertMarkdownToHTML(mdText, MarkdownFlag.dialectGitHub);
 }
 
-string highlightCode(string text, string filename) {
+string highlightCode(string filename, string repoDir) {
     // TODO: choose dependency chroma or highlight from Andre Simon
-    return text;
+    auto dstFile = buildNormalizedPath(repoDir, filename~"_out.html");
+    run(["highlight", "-i", filename, "-o", dstFile, "--fragment", "--inline-css", "--enclose-pre"], cwd: repoDir);
+    string result = readText(dstFile);
+    return result;
 }
 
 string slugify(string pathStr) {
@@ -299,7 +302,7 @@ string buildHtml(string repoUrl, string repoDir, string headCommit, ref FileInfo
             if (canFind(MARKDOWN_EXTENSIONS, ext))
                 bodyHtml = renderMarkdownText(txt);
             else {
-                bodyHtml = text(`<div class="highlight">`, highlightCode(txt, i.relPath),`</div>`);
+                bodyHtml = text(`<div class="highlight">`, highlightCode(i.relPath, repoDir),`</div>`);
             }
         }
         catch (Exception e) {
@@ -545,7 +548,7 @@ void main(string[] args) {
 
     string outputPath;
     bool noOpen = a.flag("noOpen");
-    int maxBytes = 1024;
+    int maxBytes = MAX_BYTES;
     string repoUrl = a.arg("repoUrl");
 
     if (a.option("outputPath").empty)
